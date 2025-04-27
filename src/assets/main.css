@@ -12,7 +12,8 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+h6 {
   font-family: 'Press Start 2P', system-ui;
 }
 
@@ -32,11 +33,11 @@ button {
   cursor: pointer;
 }
 
-.hero-container {
+.background-container {
   position: relative;
   margin: 0;
   padding: 0;
-  height: 100%;
+  height: 100vh;
   overflow: hidden;
   background: radial-gradient(ellipse at bottom, #2b1055 0%, #000000 100%);
   perspective: 800px; /* <- perspective added here */

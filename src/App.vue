@@ -24,27 +24,32 @@ const showComingSoon = () => {
 </script>
 
 <template>
-  <header>
-    <div class="header-wrapper">
-      <div class="header-left">
-        <RouterLink to="/">
-          <img class="logo" src="./assets/career-quest-logo.png" alt="" />
-        </RouterLink>
-        <nav class="nav-items">
-          <a href="#" @click="showComingSoon" class="nav-item"> Discover </a>
-          <a href="#" @click="showComingSoon" class="nav-item"> Special Deals </a>
-          <a href="#" @click="showComingSoon" class="nav-item"> Community </a>
-          <a href="#" @click="showComingSoon" class="nav-item"> About Us </a>
-        </nav>
+  <div class="background-container">
+    <div class="grid"></div>
+    <div class="grid-horizon"></div>
+    <div class="scanlines"></div>
+    <header>
+      <div class="header-wrapper">
+        <div class="header-left">
+          <RouterLink to="/">
+            <img class="logo" src="./assets/career-quest-logo.png" alt="" />
+          </RouterLink>
+          <nav class="nav-items">
+            <a href="#" @click="showComingSoon" class="nav-item"> Discover </a>
+            <a href="#" @click="showComingSoon" class="nav-item"> Special Deals </a>
+            <a href="#" @click="showComingSoon" class="nav-item"> Community </a>
+            <a href="#" @click="showComingSoon" class="nav-item"> About Us </a>
+          </nav>
+        </div>
+        <div class="header-right">
+          <button class="sign-in" @click="showComingSoon">Sign in</button>
+          <button class="register" @click="showComingSoon">Register</button>
+        </div>
       </div>
-      <div class="header-right">
-        <button class="sign-in" @click="showComingSoon">Sign in</button>
-        <button class="register" @click="showComingSoon">Register</button>
-      </div>
-    </div>
-  </header>
-  <coming-soon v-show="isComingSoon" />
-  <RouterView />
+    </header>
+    <coming-soon v-show="isComingSoon" />
+    <RouterView />
+  </div>
 </template>
 
 <style scoped>

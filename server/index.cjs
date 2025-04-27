@@ -1,6 +1,7 @@
 const express = require('express')
 const path = require('path')
 const cors = require('cors')
+const supabase = require('./db/db.cjs')
 
 const app = express()
 app.use(cors())
@@ -10,8 +11,17 @@ app.use(express.json())
 app.use(express.static(path.join(__dirname, '../dist')))
 
 // Your API routes
-app.get('/api/hello', (req, res) => {
-  res.json({ message: 'Hello from Express!' })
+app.get('/api/get-jobs-paginated', async (req, res) => {
+  const userQuery = req.query.query
+  const { data, error } = await supabase
+    .from('ScrapedJobs')
+    .select('*')
+    .or(`title.like.%${userQuery}%`)
+  if (error === null) {
+    res.json({ data: data })
+  } else {
+    res.status(500).json({ data: 'Something went wrong' })
+  }
 })
 
 app.get('/{*path}', (req, res) => {

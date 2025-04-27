@@ -12,9 +12,6 @@ const loadJobs = () => {
 
 <template>
   <div class="hero-container">
-    <div class="grid"></div>
-    <div class="grid-horizon"></div>
-    <div class="scanlines"></div>
     <img
       class="hero-image"
       src="https://media.discordapp.net/attachments/1365755692321079316/1365922006054211645/vecteezy_abstract-element-neon-retro-style-80s-90s_34556611.png?ex=680f117f&is=680dbfff&hm=7b90e13a7bf6249f8b14735ee2ea7e5b503685ec7982b64df42fb624a347d518&=&format=webp&quality=lossless&width=819&height=819"

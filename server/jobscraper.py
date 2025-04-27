@@ -14,9 +14,9 @@ except Exception as err:
 try:
     jobs = scrape_jobs(
         site_name=["indeed", "zip_recruiter", "glassdoor", "google", "naukri"],
-        search_term="software engineer",
-        google_search_term="software engineer jobs near San Francisco, CA since yesterday",
-        location="San Francisco, CA",
+        search_term="tech",
+        google_search_term="tech jobs near Turlock, CA since yesterday",
+        location="Turlock, CA",
         results_wanted=20,
         hours_old=72,
         country_indeed='USA',
