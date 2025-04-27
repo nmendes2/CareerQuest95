@@ -1,0 +1,148 @@
+/* @import './base.css'; */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Press+Start+2P&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+body {
+  font-family: 'Noto Sans', sans-serif;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Press Start 2P', system-ui;
+}
+
+a {
+  text-decoration: none;
+  color: #23cdde;
+}
+
+a:hover {
+  text-shadow: 0px 0px 15px #23cdde;
+}
+
+button {
+  font-family: 'Press Start 2P', system-ui;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.hero-container {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+  background: radial-gradient(ellipse at bottom, #2b1055 0%, #000000 100%);
+  perspective: 800px; /* <- perspective added here */
+}
+
+.background {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.grid {
+  position: absolute;
+  left: 0;
+  top: 15%;
+  width: 100%;
+  height: 100%;
+  transform: scale(2) rotateX(80deg); /* <- rotate the grid backward */
+  background-image:
+    linear-gradient(to top, rgba(0, 255, 255, 0.5) 1px, transparent 1px),
+    linear-gradient(to right, rgba(0, 255, 255, 0.5) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: moveGrid 5s linear infinite;
+  transform-origin: bottom center;
+  filter: drop-shadow(0 0 5px cyan) drop-shadow(0 0 10px cyan);
+}
+
+.grid-horizon {
+  position: absolute;
+  left: 0;
+  top: 65%;
+  border: 1px solid white;
+  background-color: white;
+  height: 1px;
+  width: 100%;
+  filter: drop-shadow(0 0 10px cyan) drop-shadow(0 0 5px cyan);
+}
+
+@keyframes moveGrid {
+  0% {
+    background-position:
+      0 0,
+      0 0;
+  }
+  100% {
+    background-position: 30px, 30px;
+  }
+}
+
+.scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* so it doesn't block clicking */
+  background-image: repeating-linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.05) 0px,
+    rgba(255, 255, 255, 0.05) 2px,
+    transparent 2px,
+    transparent 4px
+  );
+  animation: moveScanlines 30s linear infinite;
+  z-index: 2; /* make sure it's ABOVE the grid */
+}
+
+@keyframes moveScanlines {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 0 100px;
+  }
+}
+/*
+#app {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
+
+a,
+.green {
+  text-decoration: none;
+  color: hsla(160, 100%, 37%, 1);
+  transition: 0.4s;
+  padding: 3px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    background-color: hsla(160, 100%, 37%, 0.2);
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+} */
