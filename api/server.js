@@ -1,14 +1,12 @@
 const express = require('express');
 const app = express();
-const path = require('path');
-
-// Serve static files from the 'public' folder
-app.use(express.static(path.join(__dirname, '../public_html')));
+const pages = require("./routes/pages");
 
 // Example route (optional)
 app.get('/api/hello', (req, res) => {
   res.json({ message: 'Hello from backend!' });
 });
+app.use(pages);
 
 // Start server
 const PORT = process.env.PORT || 8080;
