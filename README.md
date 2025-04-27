@@ -33,3 +33,28 @@ npm run build
 ```sh
 npm run lint
 ```
+
+### Install Python for JobSpy
+
+```sh
+sudo apt install python3
+sudo apt install python3-pip
+```
+
+### If you would like to create virtual environments or compile extensions with Python
+
+```sh
+sudo apt install python3-dev python3-venv build-essential
+```
+
+### Install JobSpy
+
+```sh
+pip install -U python-jobspy
+```
+
+### Install Supabase for Python to connect to DB
+
+```sh
+pip install supabase
+```

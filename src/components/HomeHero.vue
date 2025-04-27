@@ -1,4 +1,14 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue'
+import axios from 'axios'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+const jobInput = ref('')
+const loadJobs = () => {
+  router.push(`/jobs/${encodeURIComponent(jobInput.value)}`)
+}
+</script>
 
 <template>
   <div class="hero-container">
@@ -17,14 +27,15 @@
       </div>
       <div class="search-bar-container">
         <div class="search-bar-input">
-          <label for="location">Location</label>
-          <input placeholder="Enter preferred location" type="text" name="location" />
+          <label for="location">Job</label>
+          <input
+            v-model="jobInput"
+            placeholder="Enter a job you are looking for"
+            type="text"
+            name="location"
+          />
         </div>
-        <div class="search-bar-input">
-          <label for="type">Type</label>
-          <input placeholder="Enter kind of role you want" type="text" name="type" />
-        </div>
-        <button class="explore-now">Explore Now</button>
+        <button class="explore-now" @click="loadJobs">Explore Now</button>
       </div>
       <div class="hero-extra">Popular Sarch: Software Developer, UX Designer, Marketer</div>
     </div>
@@ -87,6 +98,7 @@
   border: none;
   background-color: transparent;
   color: white;
+  width: 100%;
 }
 
 .search-bar-input > input:focus {

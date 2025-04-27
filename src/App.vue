@@ -1,6 +1,26 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import ComingSoon from './components/ComingSoon.vue'
+import { ref } from 'vue'
+
+const isComingSoon = ref(false)
+let intervalHandler = ref(null)
+const showComingSoon = () => {
+  clearInterval(intervalHandler.value)
+  intervalHandler.value = null
+
+  let blinkCount = 0
+  isComingSoon.value = true
+  intervalHandler.value = setInterval(() => {
+    if (blinkCount > 6) {
+      blinkCount = 0
+      clearInterval(intervalHandler.value)
+    } else {
+      isComingSoon.value = !isComingSoon.value
+      blinkCount++
+    }
+  }, 500)
+}
 </script>
 
 <template>
@@ -11,19 +31,19 @@ import HelloWorld from './components/HelloWorld.vue'
           <img class="logo" src="./assets/career-quest-logo.png" alt="" />
         </RouterLink>
         <nav class="nav-items">
-          <RouterLink to="/" class="nav-item"> Discover </RouterLink>
-          <RouterLink to="/" class="nav-item"> Special Deals </RouterLink>
-          <RouterLink to="/" class="nav-item"> Community </RouterLink>
-          <RouterLink to="/" class="nav-item"> About Us </RouterLink>
+          <a href="#" @click="showComingSoon" class="nav-item"> Discover </a>
+          <a href="#" @click="showComingSoon" class="nav-item"> Special Deals </a>
+          <a href="#" @click="showComingSoon" class="nav-item"> Community </a>
+          <a href="#" @click="showComingSoon" class="nav-item"> About Us </a>
         </nav>
       </div>
       <div class="header-right">
-        <button class="sign-in">Sign in</button>
-        <button class="register">Register</button>
+        <button class="sign-in" @click="showComingSoon">Sign in</button>
+        <button class="register" @click="showComingSoon">Register</button>
       </div>
     </div>
   </header>
-
+  <coming-soon v-show="isComingSoon" />
   <RouterView />
 </template>
 
